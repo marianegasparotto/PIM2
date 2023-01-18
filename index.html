@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Mensagem oculta</title>
+</head>
+<body>
+    <div class="titulo">
+        <img src="/assets/img/img1.png" alt="icon silencio">
+        <h1>Mensagem oculta</h1>
+        <h2>Codifique ou decodifique sua mensagem em Cifra de César ou Base 64</h2>
+    </div>
+ 
+    <div class="container">
+        <div class="int1">
+            <div class="btns">
+                <button class="btn" id="cdc">Cifra de César</button>
+                <button class="btn" id="b64">Base 64</button>
+            </div>
+            <div class="selecionar">
+                <input type="radio" class="radio" name="select" id="cod">
+                <label for="cod">Codificar</label>
+                <input type="radio" class="radio" name="select" id="descod">
+                <label for="descod">Descodificar</label>
+            </div>
+        </div>
+        <div class="int2">
+            <div class="form">
+                <div class="texto" id="text1">
+                    <p>Escreva sua mensagem</p>
+                </div>
+                <div class="texto">
+                    <input type="text" class="caixa" id="caixamsg">
+                </div>
+            </div>
+            <div id="troca">
+                <img src="/assets/img/img2.png" alt="imagem troca">
+            </div>
+            <div class="form">  
+                <div class="texto" id="text2">
+                    <p>Resposta</p>
+                </div>
+                <div class="texto">
+                    <input type="text" class="caixa" id="caixaresposta">
+                </div>
+            </div>
+        </div>        
+    </div>
+    
+
+
+
+
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>

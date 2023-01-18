@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+
+
+}
+body{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    background-image: linear-gradient(90deg, rgb(135, 135, 135), rgb(104, 92, 173),rgb(132, 132, 132));
+
+}
+
+.titulo{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    line-height: 60px;
+    font-family: 'Orbitron', sans-serif;
+
+}
+.titulo  img{
+    height: 100px;
+    
+}
+h1{
+    font-size: 60px;
+}
+
+
+/* ======================================================================== */
+
+.container {
+    width: 900px; 
+    height: 400px;
+    margin-bottom: 40px;
+    padding:40px;
+    border-radius: 20px;
+    flex-direction: column;
+    display: flex;
+    justify-content:space-around;
+    align-items:center;
+    background-color:rgb(60, 60, 60);
+}
+
+.int1{
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+}
+
+.btns {
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-around;
+    width: 200px;
+}
+
+.selecionar{
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-around;
+    width: 200px;
+}
+
+
+
+/* =========================================================================================== */
+
+
+
+.int2{
+    display: flex;
+}
+
+.caixa{
+    background-color: gray;
+    border-radius: 10px;
+    height: 180px;
+    width: 350px;
+}
+
+.form{
+    flex-direction: row;
+}
+
+#troca img{
+    height: 30px;
+    padding-top: 120px;
+}
+
+#caixamsg{
+    height: 180px;
+    width: 350px;
+}
+
+.texto{
+    padding: 10px;
+    color: white;
+    /* text-align: left; */
+    flex-direction: column;
+}
+
+
+
+
+
+/* .inte{
+    flex-direction: row;
+} */
