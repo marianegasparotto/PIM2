@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    
     <title>Mensagem oculta</title>
+    <link rel="icon" href="/assets/img/img3.png">   
 </head>
 <body>
     <div class="titulo">
@@ -17,15 +21,19 @@
  
     <div class="container">
         <div class="int1">
-            <div class="btns">
-                <button class="btn" id="cdc">Cifra de César</button>
-                <button class="btn" id="b64">Base 64</button>
+            <div class="btns1">
+                <button class="btn" id="cdc" value="1" onclick="buttoncifra()">Cifra de César</button>
+                <button class="btn" id="b64" value="2" onclick="button64()">Base 64</button>
+                <label for="increm" class="increm">Incremento</label>
+                <input type="number" class="increm" id="increm">
             </div>
             <div class="selecionar">
-                <input type="radio" class="radio" name="select" id="cod">
-                <label for="cod">Codificar</label>
-                <input type="radio" class="radio" name="select" id="descod">
-                <label for="descod">Descodificar</label>
+                <!-- <select name="select" id="select" onchange="selectArea(this.value)"> -->
+                    <input type="radio" class="radio" name="select" id="cod" value="1"  >
+                    <label for="cod">Codificar</label>
+                    <input type="radio" class="radio" name="select" id="decod" value="2" >
+                    <label for="descod">Decodificar</label>
+            <!-- </select> -->
             </div>
         </div>
         <div class="int2">
@@ -48,13 +56,14 @@
                     <input type="text" class="caixa" id="caixaresposta">
                 </div>
             </div>
-        </div>        
+        </div> 
+        <div class="int3">
+            <div class="btns2">
+                <button class="btn" id="codec" onclick="codeco()">Codificar</button>
+                <button class="btn" id="duvida" >?</button>
+            </div>
+        </div>       
     </div>
-    
-
-
-
-
     <script src="/assets/js/script.js"></script>
 </body>
 </html>
