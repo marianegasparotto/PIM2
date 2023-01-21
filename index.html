@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    
     <title>Mensagem oculta</title>
     <link rel="icon" href="/assets/img/img3.png">   
 </head>
@@ -18,22 +17,23 @@
         <h1>Mensagem oculta</h1>
         <h2>Codifique ou decodifique sua mensagem em Cifra de César ou Base 64</h2>
     </div>
- 
     <div class="container">
         <div class="int1">
             <div class="btns1">
-                <button class="btn" id="cdc" value="1" onclick="buttoncifra()">Cifra de César</button>
-                <button class="btn" id="b64" value="2" onclick="button64()">Base 64</button>
-                <label for="increm" class="increm">Incremento</label>
-                <input type="number" class="increm" id="increm">
+                <select name="tipo" id="tipo" >
+                    <option  class="selct" id="cdc" value="cifra"onchange="buttoncifra()" >Cifra de César</option>
+                    <option class="selct" id="b64" value="base64"onchange="button64()" >Base64</option>
+                </select>
             </div>
+            <div class="inc">   
+                <label for="increm" class="increm">Incremento</label>
+                <input type="number" class="increm" id="inputinc">
+            </div> 
             <div class="selecionar">
-                <!-- <select name="select" id="select" onchange="selectArea(this.value)"> -->
-                    <input type="radio" class="radio" name="select" id="cod" value="1"  >
-                    <label for="cod">Codificar</label>
-                    <input type="radio" class="radio" name="select" id="decod" value="2" >
-                    <label for="descod">Decodificar</label>
-            <!-- </select> -->
+                <input type="radio" class="radio" name="select" id="cod" value="1"  >
+                <label for="cod">Codificar</label>
+                <input type="radio" class="radio" name="select" id="decod" value="2" >
+                <label for="descod">Decodificar</label>
             </div>
         </div>
         <div class="int2">
@@ -42,7 +42,7 @@
                     <p>Escreva sua mensagem</p>
                 </div>
                 <div class="texto">
-                    <input type="text" class="caixa" id="caixamsg">
+                    <textarea type="text" class="caixa" id="caixamsg" rows="5" cols="40"></textarea>
                 </div>
             </div>
             <div id="troca">
@@ -53,17 +53,21 @@
                     <p>Resposta</p>
                 </div>
                 <div class="texto">
-                    <input type="text" class="caixa" id="caixaresposta">
+                    <textarea type="text" class="caixa" id="caixaresposta" rows="5" cols="40"></textarea>
                 </div>
             </div>
         </div> 
         <div class="int3">
             <div class="btns2">
-                <button class="btn" id="codec" onclick="codeco()">Codificar</button>
-                <button class="btn" id="duvida" >?</button>
+                <button class="btn" id="codec" onclick="codifica()">Codificar mensagem</button>
+                <button class="btn" id="duvida" onclick="inserirImagem()">?</button>
+                <span id="imagem"></span>
             </div>
         </div>       
     </div>
     <script src="/assets/js/script.js"></script>
 </body>
 </html>
+
+
+

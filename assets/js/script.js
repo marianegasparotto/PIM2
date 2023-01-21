@@ -1,18 +1,19 @@
-var cod = document.getElementById ('cod')
-var decod = document.getElementById ('decod')
-// var increm = document.getElementById('increm')
-var base = document.getElementById ('b64')
-var cifra = document.getElementById('cdc')
-var codec = document.getElementById('codec')
-
-
-
+const cod = document.getElementById ('cod')
+const decod = document.getElementById ('decod')
+const base = document.getElementById ('b64')
+const cifra = document.getElementById('cdc')
+const codec = document.getElementById('codec')
+const msgUsuario = document.getElementById('text1')
+const respUsuario = document.getElementById('text2')
+const inputinc = document.getElementById ('inputinc')
+const inc = document.getElementsByClassName('inc')
+const tipo = document.getElementById('tipo')
+const resultado = ''
 // ====================Botão radio Cod/Descod 
 
 cod.addEventListener("click", function () {
     alert('codificar')
-    // botao.innerText = "Codificar"; 
-    codec.innerText = 'Codificar'              
+    codec.innerText = 'Codificar mensagem'              
     // btns2 = $('#codec').detach()
                       
   });
@@ -21,126 +22,66 @@ cod.addEventListener("click", function () {
 
 decod.addEventListener("click", function () {
     alert('decodificar')
-    // botao.innerText = "Codificar"; 
-    codec.innerText = 'Decodificar'              
-
-    // $('#codec' ,textContent).replaceWith ('<p>Descodificar</p>')
-    // show.$('#codec')
+    codec.innerText = 'Decodificar mensagem'              
   });
 
 
+// Precisa atrelar as funções! 
+
+
 // ================ Botão de incremento 
-var increm;
-    function button64() {
-    increm = $('.increm').detach()
+
+tipo.addEventListener ('change', function(){
+
+    if(tipo.value === "base64"){
+    $(inc).css({
+        'display':'none'
+    })
+}
+    else{
+            $(inc).css({
+                'display':'block'
+            })
+        }
+    })
+
+
+// =============================== informativo 
+
+function inserirImagem(){  
+    let img = document.createElement('img')
+    img.src = './assets/img/img4.png'
+    document.body.appendChild(img);
+    img.setAttribute('id','info')
     }
 
-    function buttoncifra() {
-    $('.btns1').append(increm)
-    }
-
-// var buttonFooter;
-//     function codeco() {
-//     buttonFooter = $('#codec').remove(text)
-//     }
-
-    // function buttoncifra() {
-    // $('.btns1').append(increm)
+    // const body = document.getElementsByTagName('body')
+    // body.setAttribute('id','body')
+    // $(html).css{
+    //     'display'= 'none'
     // }
 
 
+// ---------------Codifica em Base64 =========================
 
 
-
-// $('#b64').on ('click', button64)
-// $('#cdc').on ('click', buttoncifra)
-
-//   function increm(){
-//     if(base64().value == 1){
-//         increm = document.querySelector(".increm")
-//         increm.style.display = "block"
+// function base64(){
+//     let mensagem = msgUsuario.value
+//     if(cod.checked){
+//         let resultCod = msgUsuario.value = BtoA(msgUsuario)
+//         return resultCod 
 //     }
-//     else{
-//         increm = document.querySelector(".increm")
-//         increm.style.display = "none"
+//     else(decod.checked)
+//     {
+//         let resultDecod = msgUsuario.value = AtoB(msgUsuario)
+//         return resultDecod 
 //     }
-//   }
-
-
-// function radioArea(valor){
-
-//     if(valor === '1'){
-//         alert('codificar')
-//     }
-
-//     else(valor === '2'){
-//         alert('descodificar')
-//     }
-        
-    
+//     respUsuario.innerHTML = resultado
 // }
 
+//     console.log(base64());
+  
 
-
-
-
-9
-
-
-
-
-
-
-
-// const cifra = document.getElementById('cdc')
-// const base = document.getElementById('b64')
-// const respost = document.getElementById ('text2')
-
-// function base64() {
-//     const msg = document.getElementById ('text1')
-//     const respost = document.getElementById ('text2')
-//     const texto = Text(msg.value)
-//     respost.innerHTML='Sua resposta é ${texto}'
-
-
-// }
-
-
-// function base64 () {
-//     if (true){
-//         document.innerHTML = 'Sua resposta'
-//     }
-
-
-    
-// }
-
-//     text2.innerHTML = createElement ('p')
-//     var mensagem = document.createTextNode('Sua resposta')
-//     p.appendChild(mensagem)
-// }
-// console.log(mensagem);
-
-
-// base.addEventListener ('click', baseOn)
-
-// function base64 (){
-//     document.getElementById('text2').innerHTML = createElemente('p')
-//     var mensagem = document.createTextNode('Sua resposta')
-
-//     resposta.appendChild(mensagem)
-// }
-
-// var resposta = document.createElement ('p')
-//     v
-
-
-
-// =========Codifica em Base64 
-// var decodedStringBtoA = 'Hello World!'
-// var encodedStringBtoA = btoa(decodedStringBtoA);
-
-// console.log(encodedStringBtoA);
 
 // =============Decodifica em Base64
 // var encodedStringAtoB = 'SGVsbG8gV29ybGQh';
@@ -149,9 +90,92 @@ var increm;
 // console.log(decodedStringAtoB);
 
 
+
+
+
+
+// ======================= Form 
+
+
+    // function codifica(){
+    //     respUsuario.value = msgUsuario
+    // }
+    
+    // codec.addEventListener('click',codifica)
+    // $('msgUsuario').on('click', codifica)
+    
+    
+   
+    
+    // codec.addEventListener('click', (e) => {
+    //     var seleciona = e.target.value
+    //     if(seleciona === 'base64'){
+    //         codec.setAttribute('onclick','button64()')
+    //     }
+    //     else{
+    //         // codec.setAttribute('onclick','buttoncifra()')
+    //     }
+    // })
+
+
+//==Cifra de Cesar====================================================
+// const decodeCC = (phrase, key) => {
+// 	let decodedPhrase = '';
+// 	for (let i = 0; i < phrase.length; i++) {
+// 		let charAscii = phrase.charCodeAt(i);
+
+// 		// Se for letra minúscula (Character 97-122)
+// 		if (charAscii >= 65 && charAscii <= 90) {
+// 			// Aplica a cifra de cesar
+// 			charAscii -= key;
+// 			if (charAscii < 65) {
+// 				charAscii = 91 - (65 - charAscii);
+// 			}
+// 		}
+
+// 		// Se for letra minúscula (Character 97-122)
+// 		if (charAscii >= 97 && charAscii <= 122) {
+// 			// Aplica a cifra de cesar
+// 			charAscii -= key;
+// 			if (charAscii < 97) {
+// 				charAscii = 123 - (97 - charAscii);
+// 			}
+// 		}
+// 		// Adiciona a letra decifrada à frase
+// 		decodedPhrase += String.fromCharCode(charAscii);
+// 	}
+// 	return decodedPhrase;
+// };
+
+
 // =============================Cifra de Cesar 
 // "A" .charCodeAt(0)
 
 // (codigoDaLetra + desloc) % tamDoAlfabeto + 65
 //                      65                       26             65
 // ((códigoDaLetra - cod1aLetra + desloc) % tamDoAlfabeto) + cod1aLetra
+
+// A - Z = 65 á 90
+// a - z = 97 á 122
+// function cdcesar(){
+
+// }
+
+// ==================================================================
+
+// var input = msgUsuario.value
+// formEntrada.addEventListener('submit', codeco(),{
+// msgUsuario : window.btoa(entrada.value)
+
+
+// })
+
+// console.log(msgUsuario);
+
+
+// var decodedStringBtoA = 'Hello World!'
+// var encodedStringBtoA = btoa(decodedStringBtoA);
+
+
+
+
