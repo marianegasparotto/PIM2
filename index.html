@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- -------------------- Fontes utilizadas -------------------------  -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <!-- ------------------------- Arquivo css da página ------------------------  -->
     <link rel="stylesheet" href="/assets/css/style.css">
+    <!-- --------------------- Referencia jquery--------------------  -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <!-- ------------------- Titulo e icon da aba -----------------------  -->
     <title>Mensagem oculta</title>
     <link rel="icon" href="/assets/img/img3.png">   
 </head>
 <body>
+    <!-- ------------------ Titulo e imagem incial da página------------------------  -->
     <div class="titulo">
         <img src="/assets/img/img1.png" alt="icon silencio">
         <h1>Mensagem oculta</h1>
@@ -19,24 +24,29 @@
     </div>
     <div class="container">
         <div class="int1">
+            <!-- ---------- Seleciona entre as opções de codificação---------- -->
             <div class="btns1">
                 <select name="tipo" id="tipo" >
                     <option  class="selct" id="cdc" value="cifra"onchange="buttoncifra()" >Cifra de César</option>
                     <option class="selct" id="b64" value="base64"onchange="button64()" >Base64</option>
                 </select>
             </div>
+            <!-- ----------------- Input incremento para Cifra de Cesar ----------------  -->
             <div class="inc">   
                 <label for="increm" class="increm">Incremento</label>
                 <input type="number" class="increm" id="inputinc">
             </div> 
+            <!-- ------------------- Radio para escolha em codificar/decodificar -------------------------  -->
             <div class="selecionar">
                 <input type="radio" class="radio" name="select" id="cod" value="1"  >
                 <label for="cod">Codificar</label>
                 <input type="radio" class="radio" name="select" id="decod" value="2" >
                 <label for="descod">Decodificar</label>
             </div>
+            <!-- <button id="close" onclick="fecharImagem()"> X </button> -->
         </div>
         <div class="int2">
+            <!-- ------------------- Textarea para o usuario digitar a mensagem ---------------------------- -->
             <div class="form">
                 <div class="texto" id="text1">
                     <p>Escreva sua mensagem</p>
@@ -48,6 +58,7 @@
             <div id="troca">
                 <img src="/assets/img/img2.png" alt="imagem troca">
             </div>
+            <!-- --------------------- Resposta para o usuario ------------------------------- -->
             <div class="form">  
                 <div class="texto" id="text2">
                     <p>Resposta</p>
@@ -58,13 +69,16 @@
             </div>
         </div> 
         <div class="int3">
+            <!-- ----------------- Botão para executar a ação e folder de ajuda --------------------  -->
             <div class="btns2">
-                <button class="btn" id="codec" onclick="codifica()">Codificar mensagem</button>
+                <button class="btn" id="codec">Codificar mensagem</button>
                 <button class="btn" id="duvida" onclick="inserirImagem()">?</button>
                 <span id="imagem"></span>
             </div>
         </div>       
     </div>
+    <button id="close" onclick="fecharImagem()"> X </button>
+    <!-- --------------------------- Arquivo Javascript da pagina -------------------------  -->
     <script src="/assets/js/script.js"></script>
 </body>
 </html>

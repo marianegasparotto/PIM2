@@ -3,7 +3,7 @@
     padding: 0;
     
 
-
+/* =================================== CONFINGURÇÕES GERAIS DA PÁGINA  */
 }
 body{
     display: flex;
@@ -11,10 +11,11 @@ body{
     flex-direction: column;
     align-items: center;
     padding-top: 15px;
-    background-image: linear-gradient(90deg, rgb(135, 135, 135), rgb(104, 92, 173),rgb(132, 132, 132));
+    background: linear-gradient(90deg, rgb(135, 135, 135), rgb(104, 92, 173),rgb(132, 132, 132));
     font-family: 'Kanit', sans-serif; 
 
 }
+/* =================================== CONFINGURÇÕES GERAIS DOS BOTÕES DA PÁGINA  */
 
 button{
 
@@ -66,7 +67,7 @@ h1{
     align-items:center;
     background-color:rgb(60, 60, 60);
 }
-/* ================================================================================= DIV BOTOES E RADIO  */
+/* ================================================================================= ESPECIFICAÇÕES BOTOES E RADIO  */
 label{
     color:white;
     border:#101010
@@ -122,20 +123,20 @@ label{
 }
 
 
-/* =========================================================================================== */
+/* ===============================================================TEXTAREAS E ICON CENTRAL */
 .int2{
     display: flex;
 }
 
 
 .caixa{
-    background-color: gray;
+    background-color: rgb(128, 128, 128);
     box-shadow: inset 2px 2px 2px 1px  #101010;
     border-radius: 10px;
     height: 180px;
     width: 350px;
     padding: 10px;
-    cursor: text;
+    cursor: default;
 }
 
 .form{
@@ -159,7 +160,7 @@ label{
     flex-direction: column;
 }
 
-/* ===================================================================== */
+/* ===================================================== BOTÕES RODAPÉ */
 
 .btns2{
     width: 400px;
@@ -173,6 +174,7 @@ label{
     height: 600px;
     width: 800px;
 }
-/* #body{
-    display: none;
-} */
+#close{
+    visibility: hidden;
+    margin-bottom: 20px;
+}
