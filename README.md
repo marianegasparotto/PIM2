@@ -14,7 +14,7 @@
 
 ## :wrench:  Como executar:
 Aqui você encontra o resultado final desse projeto:
-<p>:pushpin: </p>
+<p>:pushpin: </p> https://marianegasparotto.github.io/PIM2/
 
 
 <p>Entre em contato comigo:</p> <p>  <a href="https://www.linkedin.com/in/mari-santos-g-181a6525a/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>   </p>
