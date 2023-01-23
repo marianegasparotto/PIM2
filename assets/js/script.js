@@ -1,62 +1,59 @@
 const cod = document.getElementById ('cod')
 const decod = document.getElementById ('decod')
-const base = document.getElementById ('b64')
-const cifra = document.getElementById('cdc')
 const codec = document.getElementById('codec')
 const msgUsuario = document.getElementById('caixamsg')
 const respUsuario = document.getElementById('caixaresposta')
 const inputinc = document.getElementById ('inputinc')
 const inc = document.getElementsByClassName('inc')
-const tipo = document.getElementById('tipo')
-const usuario = ''
+const tipo = document.querySelector('#tipo')
+
 // ====================Botão radio Cod/Descod 
 
 cod.addEventListener("click", function () {
-    alert('codificar')
-    codec.innerText = 'Codificar mensagem'                                    
+    codec.innerText = 'Codificar mensagem'                                     
   });
-
 
 decod.addEventListener("click", function () {
-    alert('decodificar')
-    codec.innerText = 'Decodificar mensagem'              
+    codec.innerText = 'Decodificar mensagem'
   });
 
+// ============================= Botao codec 
 
-// =============================== Executa as funções 
-// codec.addEventListener('click', function(){
-//     if(tipo.value === 'Cifra de César'){
-//         resultado.innerText = cifraDeCesar();
-//     }
-// })
-
+codec.addEventListener('click', function(){
+    let op = $('#tipo option:selected').val()
+    if(cod.checked){
+    if(op === 'cifra'){
+        respUsuario.innerText = coCifraDeCesar();
+    }
+    else if(op === 'base64'){
+        respUsuario.innerText = base64()
+    }
+}
+else{
+    if(op === 'cifra'){
+        respUsuario.innerText = deCifraDeCesar();
+    }
+    else if(op === 'base64'){
+        respUsuario.innerText = base64()
+    }
+}
+})
 
 // ================ Botão de incremento 
 
 tipo.addEventListener ('change', function(){
-
     if(tipo.value === "base64"){
     $(inc).css({
         'display':'none'
     })
-    // codec.setAttribute('click',base64)
 }
     else{
             $(inc).css({
                 'display':'block'
             })
-            // codec.setAttribute('click',coCifraDeCesar)
 
         }
     })
-// ============================= Botao codec 
-codec.addEventListener("click", function(e){
-    e.preventDefault()
-    if(inputinc.value === 'Cifra de César' && cod)
-    {
-        respUsuario.innerText = coCifraDeCesar()
-    }
-})
 
 // =============================== informativo 
 // ------- Abrir imagem ---------
@@ -85,8 +82,7 @@ function fecharImagem(){
         $('#info').remove()
     }
 
-// ---------------Codifica em Base64 =========================
-
+// ================Codificar/Decodificar em Base64 =========================
 
 function base64(){
     let mensagem = msgUsuario.value
@@ -98,211 +94,59 @@ function base64(){
     {
         let resultDecod =  atob(mensagem)
         return resultDecod 
-    }
-    
+    }   
 }
-
-
 
 //==Cifra de Cesar====================================================
+//  ----------------------- Codificar -------------------------- 
+function coCifraDeCesar (frase,key){
+    frase = msgUsuario.value
+    key = inputinc.value
+    let cotextCDC = ''
 
-function coCifraDeCesar (usuario,key){
-    const frase = msgUsuario.value 
-    const coCifraDeCesar = (usuario,key)
-    
     if(cod.checked){
-    for(var i = 0; i < usuario.length; i++){
-    const letra = usuario.charCodeAt(i)
+    for(let i = 0; i < frase.length; i++){
+    let letra = frase.charCodeAt(i)
     
-    if(frase == ' '){
-        resultado = resultado + ' '
-       
-    }
     if (letra >= 65 && letra <= 90)
-        {
-            letra = 65 + (letra - 65 + key) % 26
+        {      
+            cotextCDC += String.fromCharCode(((letra - 65 - (-key)) + 26) % 26 + 65)
         }
     else if(letra >= 97 && letra <= 122)
         {
-            letra = 97 + (letra - 97 + key) % 26
-
+            cotextCDC += String.fromCharCode(((letra - 97 - (-key)) + 26) % 26 + 97)
         }
-        coCifraDeCesar += String.fromCharCode(letra)
+    else{
+            cotextCDC += String.fromCharCode(letra)
+        }
     }
-    return coCifraDeCesar 
+    return cotextCDC 
     }
 }
-
-function deCifraDeCesar (usuario,key){
-    const frase = msgUsuario.value 
-    const deCifraDeCesar = (usuario,key)
+//  ----------------------- Decodificar -------------------------- 
+function deCifraDeCesar (frase,key){
+    frase = msgUsuario.value 
+    key = inputinc.value
+    let detextCDC = ''
     
-    if(cod.checked){
-    for(var i = 0; i < usuario.length; i++){
-    const letra = usuario.charCodeAt(i)
+    if(decod.checked){
+    for(let i = 0; i < frase.length; i++){
+    let letra = frase.charCodeAt(i)
         
-    if(frase == ' '){
-        resultado = resultado + ' '
-       
-    }
+
     if (letra >= 65 && letra <= 90)
-        {
-            letra = 65 + (letra - 65 - key + 26) % 26
+        { 
+            detextCDC += String.fromCharCode((letra - 65 - key + 26) % 26 + 65) 
         }
     else if(letra >= 97 && letra <= 122)
         {
-            letra = 97 + (letra - 97 - key + 26) % 26
-    
+            detextCDC += String.fromCharCode((letra - 97 - key + 26) % 26 + 97) 
         }
-        deCifraDeCesar += String.fromCharCode(letra)
+        else{
+            detextCDC += String.fromCharCode(letra)
+        }
     }
-    return deCifraDeCesar 
+    return detextCDC 
     }    
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function cifraDeCesar (usuario,key){
-// const usuario = ''
-// const frase = msgUsuario.value 
-// const valorinc = inputinc.value
-
-// if(cod.checked){
-// for(var i = 0; i < usuario.length; i++){
-// const letra = usuario.charCodeAt(i)
-
-// if(frase == ' '){
-//     resultado = resultado + ' '
-   
-// }
-// if (letra >= 65 && letra <= 90)
-//     {
-//         letra -= key
-//         resultado += String.fromCharCode((letra.charCodeAt(i) + valorinc - 97)% 26 + 65)
-//     }
-// else if(letra >=97 && letra <= 122)
-//     {
-//         letra -= key
-//         resultado += String.fromCharCode((letra.charCodeAt(i) + valorinc - 97 )% 26 + 97)
-//     }
-//     resultado += String.fromCharCode(frase)
-
-// }
-
-// }
-// return resultado
-// // respUsuario.innerHTML = resultado
-
-// =============================Cifra de Cesar 
-
-
-
-
-
-// $('#codec').on('click',codifica);
-
-// // resultado.val(mensagem)
-// // console.log(mensagem)
-
-// function codifica (){
-//     // var mensagem = document.querySelector("#caixamsg").value
-//     // var resultado = document.querySelector("#caixaresposta")
-//     $('#caixamsg').val(
-//     $('#caixaresposta')
-
-// )
-//     resultado.value = mensagem
-// }
-
-// document.getElementById('codec').addEventListener('click',codifica)
-
-
-// codec.addEventListener("click", function(){
-//     msgUsuario.value = respUsuario.value
-//     msgUsuario.value = ""
-// })
-
-
-
-
-// "A" .charCodeAt(0)
-
-// (codigoDaLetra + desloc) % tamDoAlfabeto + 65
-//                      65                       26             65
-// ((códigoDaLetra - cod1aLetra + desloc) % tamDoAlfabeto) + cod1aLetra
-
-
-// }
-
-// const decodeCC = (phrase, key) => {
-// 	let decodedPhrase = '';
-// 	for (let i = 0; i < phrase.length; i++) {
-// 		let charAscii = phrase.charCodeAt(i);
-
-// 		// Se for letra minúscula (Character 97-122)
-// 		if (charAscii >= 65 && charAscii <= 90) {
-// 			// Aplica a cifra de cesar
-// 			charAscii -= key;
-// 			if (charAscii < 65) {
-// 				charAscii = 91 - (65 - charAscii);
-// 			}
-// 		}
-
-// 		// Se for letra minúscula (Character 97-122)
-// 		if (charAscii >= 97 && charAscii <= 122) {
-// 			// Aplica a cifra de cesar
-// 			charAscii -= key;
-// 			if (charAscii < 97) {
-// 				charAscii = 123 - (97 - charAscii);
-// 			}
-// 		}
-// 		// Adiciona a letra decifrada à frase
-// 		decodedPhrase += String.fromCharCode(charAscii);
-// 	}
-// 	return decodedPhrase;
-// };
-
-
-// ==================================================================
-
-// var input = msgUsuario.value
-// formEntrada.addEventListener('submit', codeco(),{
-// msgUsuario : window.btoa(entrada.value)
-
-
-// })
-
-// console.log(msgUsuario);
-
-
-// var decodedStringBtoA = 'Hello World!'
-// var encodedStringBtoA = btoa(decodedStringBtoA);
